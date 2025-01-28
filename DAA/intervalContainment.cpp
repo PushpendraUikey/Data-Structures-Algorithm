@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+//Produces a set of non-overlapping intervals from the original list.
 std::vector<std::pair<int, int>> intervals(std::vector<std::pair<int, int>>& interval){
     // we need to sort on the basis increasing order of their starting time
     // O(nlogn) 
@@ -46,6 +48,24 @@ int totalLength(std::vector<std::pair<int,int>>&interval){
     return length - deficit;
 }
 
+// Here's the neater code for the above. [finding the total length of the union of intervals.]
+int totalLength(std::vector<std::pair<int, int>>& intervals) {
+    // Sort intervals by starting time
+    std::sort(intervals.begin(), intervals.end());
+
+    int length = 0, lastEnd = 0;
+
+    for (const auto& interval : intervals) {
+        if (interval.second <= lastEnd) continue; // Skip fully overlapping interval
+        length += interval.second - std::max(interval.first, lastEnd); 
+        lastEnd = interval.second; // Update the end of the last covered range
+    }
+
+    return length;
+}
+
+
+// No of non-overlapping intervals.
 int nonOverlapping(std::vector<std::pair<int,int>>&interval){
     std::sort(interval.begin(), interval.end());
     int lastend = INT_MIN;
@@ -57,6 +77,7 @@ int nonOverlapping(std::vector<std::pair<int,int>>&interval){
     return nonoverlap;
 }
 
+// Number of maximum intersecting intervals 
 int maxintersecting(std::vector<std::pair<int,int>>&interval){
     std::vector<std::pair<int,int>> events;
     for(auto& in: interval){
@@ -73,6 +94,7 @@ int maxintersecting(std::vector<std::pair<int,int>>&interval){
     return maxinterval;
 }
 
+// Driver code.
 int main(int argc, char* argv[]){
     int n; cin >> n;
     std::vector<pair<int,int>> vec;

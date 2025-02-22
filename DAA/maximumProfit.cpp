@@ -21,6 +21,22 @@ int maxProfit(std::vector<int>& price){
     return best;
 }
 
+// Here's the better greedy algorithm to calculate max profit.  [It is actually a better solution.]
+
+int maxProfit_Greed(std::vector<int>&price){
+    int n = price.size();
+
+    int maxProfit = 0;
+    int minPrice = price[0];
+
+    for(int i=0; i<n; i++){
+        maxProfit = std::max(maxProfit, price[i]-minPrice); // efficiently keep checking the maxProfict change.
+        minPrice = std::min(minPrice, price[i]);    // Keep track of minimum Price.
+    }
+
+    return maxProfit;
+}
+
 int main(int argc, char *argv[]){
 
     std:: cout << " Enter the nubmer of days and price of each day \n";
@@ -33,4 +49,5 @@ int main(int argc, char *argv[]){
         stock[i] = va;
     }
     std::cout << "Maximum profit that can be earned is : " << maxProfit(stock) << std::endl;
+    std::cout << "Maximum profit that can be earned is : " << maxProfit_Greed(stock) << std::endl;
 }

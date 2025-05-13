@@ -54,3 +54,46 @@ int allocateBooks(vector<int> arr, int n, int m){
     }
     return ans;
 }
+
+// if the array isn't sorted
+bool allocationPossible(int val, vector<int>&arr, int m){
+    int temp=0;
+    int allocPpl = 1;
+    for(int i=0; i<arr.size(); i++){
+        temp += arr[i];
+        if(temp > val){
+            allocPpl++;
+            temp = 0;
+            i--;
+            if(allocPpl > m){
+                return false;
+            }
+        }
+    }
+    return allocPpl <= m;   // if fewer people can be given pages then definitely more people can acc to our impl.
+}
+/// @brief to allocate books to fixed num of students such that max page assigned to a stud is minimized: pages to be allocated contiguously
+/// @param arr contains number of pages in the books
+/// @param n number of books
+/// @param m number of people to allocate book
+/// @return minimized max number of pages any student gets.
+int findPages(vector<int>& arr, int n, int m) {
+    if(m > n) return -1;    // not possible to allocate
+    int total{0};
+    for(auto& e:arr){
+        total += e;
+    }
+
+    int startPage=0, endPage=total, midPage;
+    bool possible = false;
+    while(endPage > startPage){
+        midPage = startPage + (endPage - startPage)/2;
+        if(allocationPossible(midPage, arr, m)){
+            endPage = midPage;
+            possible = true;
+        }else{
+            startPage = midPage+1;
+        }
+    }
+    return possible ? startPage : -1;
+}

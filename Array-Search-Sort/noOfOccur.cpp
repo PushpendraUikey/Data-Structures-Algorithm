@@ -42,3 +42,14 @@ int count(vector<int>& arr, int n, int x) {
 	}
 	return t-s+1;
 }
+
+
+// very efficient alternative to the above problem, using built <algorithms> function
+#include <algorithm>
+int count(vector<int>& array, int n, int x) {
+	auto r = std::equal_range(array.begin(), array.end(), x);
+	// equal_range performs binary search on the given array and gives the upper_bound
+	// and lower_bound in one result, upper_bound and lower_bound itself are done using 
+	// binary search on given array!
+ 	return r.second - r.first;
+}

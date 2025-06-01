@@ -19,7 +19,7 @@ void BubbleSort(int arr[], int n){
             }
         }
         
-        if(!swapped){       //// If no swap done that means array has become sorted.
+        if(!swapped){       // If no swap done that means array has become sorted.
             break;
         }
     }

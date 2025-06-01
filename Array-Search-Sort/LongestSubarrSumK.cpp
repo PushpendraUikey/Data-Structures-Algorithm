@@ -28,6 +28,7 @@ public:
     }
 };
 
+// Here we're taking benefit of the subarray condn(it has to be contiguous)
 // Solution for the array containing only non-negative elements
 // This is two pointer approach, most optimal solution for this problem.
 // It has worst case time complexity of O(2n);
@@ -51,10 +52,10 @@ class Solution2 {
                      i++;
                 }
                 else if(totalSum < k){
-                    totalSum += nums[i];    // keep Adding in totalsum using fast pointer
+                    totalSum += nums[i];  // keep Adding in totalsum using fast pointer
                     i++;
                 }else{
-                    totalSum -= nums[j];    // removing from totalSum using the slow pointer(As totalsum has exceeded requirements)
+                    totalSum -= nums[j];  // removing from totalSum using the slow pointer(As totalsum has exceeded requirements)
                     j++;
                 }
             }

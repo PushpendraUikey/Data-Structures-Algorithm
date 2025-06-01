@@ -28,3 +28,14 @@ int main(){
 
     cout << getPivot(arr, s) << endl;
 }
+
+
+// Another implementation to find pivot could be as
+// following implementation gives maxima of function
+int findPivot(int (*f(int)), int z){
+    int x =-1;
+    for (int b = z; b >= 1; b /= 2) {
+    while (f(x+b) < f(x+b+1)) x += b;
+    }
+    int k = x+1;
+}

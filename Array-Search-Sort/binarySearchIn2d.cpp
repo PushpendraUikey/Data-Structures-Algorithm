@@ -21,6 +21,7 @@ public:
         int m = s + (e-s)/2;
 
         while( e >= s){
+            // Idea here is to represent the 2D matrix to a 1D array and then you're done.
             int element = matrix[m/col][m%col];         // this actually solves the problem(trick)
 
             if (element == target) return true;

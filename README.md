@@ -1,113 +1,99 @@
-# Data Structure & Algorithms
+<h1 align="center">📚 Data Structures & Algorithms in C++</h1>
 
-Welcome to the **Data Structure & Algorithms** repository! This collection of C++ solutions is designed to help you master various data structures and algorithms, particularly those commonly encountered in technical interviews. The solutions were developed during the **Summer of Science 2024** (WnCC) and are organized by topics and algorithms.
+<p align="center">
+  <em>A complete repository of solved DSA problems, designed for interviews, CP, and academic mastery.</em><br>
+  <strong>Developed during the Summer of Science 2024 (WnCC)</strong>
+</p>
 
-## Table of Contents
+---
 
-- [Folder Structure](#folder-structure)
-- [Folder Descriptions](#folder-descriptions)
-- [General Problem Solutions](#general-problem-solutions)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [License](#license)
+## 🚀 Overview
 
-## Folder Structure
+Welcome to the **Data Structures & Algorithms** repository! This is a curated collection of C++ solutions to classic and advanced problems that are frequently asked in technical interviews and competitive programming platforms.
 
-The repository is structured into several folders, each containing C++ files that address specific topics or algorithms. Here’s an overview of the folders included:
+📌 **Why this repo?**
+- Consolidates structured practice across DSA topics.
+- Strengthens algorithmic thinking with real interview-level questions.
+- Reflects deep command gained through coursework, coding contests, and bootcamp-style learning.
 
-```
-Data Structure & Algorithms/
-│
-├── Array_Search_Sort/
-├── BackTrack/
-├── BinarySearchTree/
-├── BinaryTree/
-├── Codeforces/
-├── Dynamic-Programming/
-├── Graph/
-├── Hasmap/
-├── Heaps/
-├── LinkedList/
-├── Queue/
-├── Recursion/
-├── Stacks/
-├── Strings/
-├── Trie/
-└── General_Problems/
-```
+---
 
-## Folder Descriptions
+## 🧠 Highlights
+- ✅ 20+ structured topic-wise directories
+- ✅ Problems from **LeetCode**, **Codeforces**, and **CSES**
+- ✅ Includes coursework from **Design and Analysis of Algorithms**
+- ✅ Bootcamp-driven learning: **DSA Bootcamp 2024 (WnCC)**
+- ✅ Clean, modular, and tested C++ code
+- ✅ MIT Licensed and open for collaboration
 
-### Array_Search_Sort
-Contains implementations of various searching and sorting algorithms, such as binary search, quicksort, mergesort, etc.
+---
 
-### BackTrack
-Solutions for problems that utilize backtracking techniques, including permutations, combinations, and Sudoku solver.
+## 📁 Folder Structure
 
-### BinarySearchTree
-Implementations of binary search tree operations such as insertion, deletion, traversal, and balancing.
+### 🔢 Core DSA Topics
+| Folder               | Description |
+|----------------------|-------------|
+| `Array-Search-Sort`  | Sorting, searching, and array manipulation problems |
+| `Two-Pointer`        | Efficient traversal techniques using two pointers |
+| `String`             | String parsing, pattern matching, and more |
+| `BitManipulation`    | Binary operations, bit tricks, and optimizations |
+| `LinkedList`         | Implementation and problems on single/double linked lists |
+| `Stacks`             | Stack-based solutions and expression handling |
+| `Queue`              | Queue variations and problem-solving |
 
-### BinaryTree
-Solutions related to binary tree problems, including traversals, height calculations, and diameter finding.
+### 🌳 Trees & Heaps
+| Folder               | Description |
+|----------------------|-------------|
+| `BinaryTree`         | Tree traversals, depth, diameter, etc. |
+| `BinarySearchTree`   | BST operations and problem-solving |
+| `Heaps`              | Min/max heaps, priority queues |
 
-### Codeforces
-Solutions to competitive programming problems from Codeforces contests.
+### 🧩 Advanced Topics
+| Folder                   | Description |
+|--------------------------|-------------|
+| `Graph`                  | BFS, DFS, Dijkstra, and graph-based challenges |
+| `Dynamic-Programming`    | Tabulation, memoization, and optimization |
+| `Recursion`              | Core recursion patterns |
+| `BackTrack`              | Backtracking for combinatorics and puzzles |
+| `Appproximation-algorithms` | Greedy and approximation techniques |
+| `combinatorics`          | Counting, permutations, and combinations |
 
-### Dynamic-Programming
-C++ solutions for classic dynamic programming problems, including Fibonacci, knapsack, and longest common subsequence.
+### 🎓 Academic Projects
+| Folder              | Description |
+|---------------------|-------------|
+| `DAA`               | Coursework for Design and Analysis of Algorithms |
+| `DSA-Bootcamp-24`   | Learning and problem-solving during WnCC bootcamp |
 
-### Graph
-Implementations of various graph algorithms, including Dijkstra's, BFS, DFS, and topological sorting.
+### 🏆 Competitive Programming
+| Folder         | Description |
+|----------------|-------------|
+| `leetcode`     | Categorized LeetCode problems |
+| `codeforces`   | Codeforces problem solutions |
+| `cses`         | Full set of problems from CSES (Intro, DP, Trees, etc.) |
 
-### Hasmap
-Solutions that utilize hash maps for efficient data retrieval and manipulation.
+### 🧪 Miscellaneous
+| Folder           | Description |
+|------------------|-------------|
+| `other-problems` | Miscellaneous problems from contests and platforms |
+| `project-plan`   | Notes and milestones from personal learning roadmap |
 
-### Heaps
-C++ implementations of heap data structures and related algorithms, such as heap sort and priority queues.
+---
 
-### LinkedList
-Solutions for operations related to linked lists, including reversal, merging, and cycle detection.
+## 🛠️ Tech Stack
+- 💻 Language: **C++**
+- 🔧 Tools: **Git**, **GitHub**
+- 📄 Platform: Local + Online Judges
 
-### Queue
-Implementations of queue operations and problems, including circular queues and priority queues.
+---
 
-### Recursion
-C++ solutions for problems that can be solved using recursion, including factorial and Fibonacci calculations.
+## 📦 How to Use
+```bash
+# Clone the repository
+git clone https://github.com/PushpendraUikey/Data-Structures-Algorithm.git
+cd Data-Structures-Algorithm
 
-### Stacks
-Implementations of stack operations and problems, including expression evaluation and balancing parentheses.
+# Browse through folders and open any `.cpp` file to view the solution.
 
-### Strings
-Solutions for various string manipulation problems, including pattern matching and string searching algorithms.
-
-### Trie
-C++ implementations of trie data structures for efficient prefix-based searches.
-
-## General Problem Solutions
-
-In addition to the organized folders, there are several general problem solutions located in the root of the repository. These include:
-
-- **Huffman**: Implementation of Huffman coding for data compression.
-- **Binary Exponentiation**: Efficient calculation of exponentiation using logarithmic time complexity.
-- **Decimal to Binary**: Conversion of decimal numbers to their binary representation.
-- **Pattern Matching**: Solutions for string pattern matching problems.
-
-## Getting Started
-
-To get started with this repository, follow these steps:
-
-1. Clone the repository to your local machine:
-   ```bash
-   git clone https://github.com/yourusername/Data-Structure-Algorithms.git
-   ```
-
-2. Navigate to the desired folder to find the C++ solution files.
-
-3. Compile and run the C++ files using your preferred C++ compiler. For example:
-   ```bash
-   g++ your_file.cpp -o your_program
-   ./your_program
-   ```
 
 ## Contributing
 

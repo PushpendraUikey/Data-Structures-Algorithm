@@ -47,3 +47,25 @@ int countDistinctWays(int nStairs) {
     if(nStairs <= 1) return 1;
     return fibonacciNumber(nStairs);
 }
+
+// if each we can take either 1 or 2 step then calculate the ways to reach nth step
+class Solution {
+    
+    int solve(int n, std::vector<int>& counts){
+        if(n<0) return 0;
+        if(n==0) return 1;
+        
+        if(counts[n] != -1) return counts[n];
+        
+        return counts[n] = solve(n-1, counts) + solve(n-2, counts);
+    }
+  public:
+    // Function to count number of ways to reach the nth stair.
+    
+    int countWays(int n) {
+        // your code here
+        std::vector<int> __counts(n+1,-1);
+        
+        return solve(n, __counts);
+    }
+};

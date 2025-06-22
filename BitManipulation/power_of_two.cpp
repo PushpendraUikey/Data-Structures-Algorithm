@@ -2,6 +2,16 @@
 #include<cmath>
 using namespace std;
 
+// Here's most efficient algorithm to calculate the power of 2
+class Solution {
+  public:
+    // Function to check if given number n is a power of two.
+    bool isPowerofTwo(int n) {
+        // Since only one bit is set in the power of 2
+        return (n!=0) & (!(n&(n-1)));
+    }
+};
+
 int main(){
     cout << "Enter the number to test: " ;
     int num; cin >> num;

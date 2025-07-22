@@ -62,3 +62,45 @@ int main(){
     }
     cout  << endl;
 }
+
+// Here's slightly modified approach to reverse the words in string and the words are space separated.
+void reversepart(string&s, int b, int e){
+    while(b<e) swap(s[b++], s[e--]);
+}
+void reversestring2(string&s){
+    int start=0;
+    for(int end=0; end<s.length(); end++){
+        if(s[end]==' '){
+            reversepart(s, start, end-1);
+            start=end+1;
+        }
+        reversepart(s, start, s.length()-1);
+        reversepart(s, 0, s.length()-1);
+    }
+}
+
+// There could be multiple dots between two words and in the beginning and in the end
+class Solution {
+  public:
+    string reverseWords(string &s) {
+        int start=0;
+        int end=0;
+        string ans="";
+        int n = s.length();
+        
+        while(s[start]=='.')start++;
+        end = start;
+        while(s[n-1]=='.')n--;
+        
+        for( ; end<n; end++){
+            if(s[end]=='.'){
+                ans = "." + s.substr(start, end-start) + ans;
+                while(end < n && s[end]=='.') end++;
+                start = end;
+                end--;
+            }
+        }
+        ans = s.substr(start, end-start) + ans;
+        return ans;
+    }
+};

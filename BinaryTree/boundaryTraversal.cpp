@@ -1,32 +1,11 @@
 #include<bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
 Following is the code to do boundary traversal of a Binary Tree
 */
-    template <typename T>
-    class TreeNode
-    {
-    public:
-        T data;
-        TreeNode<T> *left;
-        TreeNode<T> *right;
 
-        TreeNode(T data)
-        {
-            this -> data = data;
-            left = NULL;
-            right = NULL;
-        }
-
-        ~TreeNode()
-        {
-            if(left)
-                delete left;
-            if(right)
-                delete right;
-        }
-    };
 void leftTraverse(TreeNode<int> *root, vector<int> &ans){
     if(root == NULL || (root->right==NULL && root->left == NULL)){
         return;

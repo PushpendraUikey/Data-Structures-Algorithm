@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
@@ -6,11 +7,7 @@ Following here is the algorithm to find the diameter of tree
 Diameter of a tree is the maximum distance between two nodes in 
 the given tree
 */
-struct Node {
-    int data;
-    struct Node* left;
-    struct Node* right;
-};
+
 Node* newNode(int val) {
     Node* temp = new Node;
     temp->data = val;

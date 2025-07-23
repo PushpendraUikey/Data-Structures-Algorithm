@@ -1,24 +1,11 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
 Code to check if a binary tree is a mirror tree
 i.e. left subpart is just flip copy of right subpart and viceversa
 */
-template<typename T>
-class BinaryTreeNode {
-public:
-    T data;
-    BinaryTreeNode<T> *left;
-    BinaryTreeNode<T> *right;
-
-    BinaryTreeNode(T data) {
-        this->data = data;
-        left = NULL;
-        right = NULL;
-    }
-};
-
 
 bool areMirror(BinaryTreeNode<int> *root1, BinaryTreeNode<int> *root2)
 {

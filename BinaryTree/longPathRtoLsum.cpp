@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
@@ -6,20 +7,6 @@ Here is the code to find the maximum sum of longest
 root to root to leaf path
 path given priority
 */
-struct Node
-{
-    int data;
-    struct Node *left;
-    struct Node *right;
-
-    Node(int x)
-    {
-        data = x;
-        left = NULL;
-        right = NULL;
-    }
-};
-
 class Solution
 {
     void solve(Node* root, int sum, int&maxSum, int len, int &maxlen){

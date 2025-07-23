@@ -1,17 +1,11 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
 Here it is the code to find maximum sum of non adjacent nodes
 Solution is bit tricky, hence dry run is suggested
 */
-struct Node
-{
-    int data;
-    Node* left;
-    Node* right;
-};
-
 
 class Solution{
 

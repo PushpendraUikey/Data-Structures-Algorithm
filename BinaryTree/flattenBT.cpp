@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
@@ -6,17 +7,6 @@ Here is the algorithm to flatten a Binary Tree using Morris Traversal in O(1)
 in flattened tree left pointer will be null and right pointer will
 point to next node
 */
-
-struct Node {
-    int data;
-    Node *left;
-    Node *right;
-
-    Node(int val) {
-        data = val;
-        left = right = NULL;
-    }
-};
 
 class Solution
 {

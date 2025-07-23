@@ -1,20 +1,7 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
-template <typename T>
-    class BinaryTreeNode
-    {
-    public :
-        T data;
-        BinaryTreeNode<T> *left;
-        BinaryTreeNode<T> *right;
-
-        BinaryTreeNode(T data) {
-            this -> data = data;
-            left = NULL;
-            right = NULL;
-        }
-    };
 void solve(BinaryTreeNode<int> *root, int t, int k, vector<int> &nodes, int &ans){
     if(root == NULL){
         return ;

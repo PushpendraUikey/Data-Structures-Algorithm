@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
@@ -7,17 +8,6 @@ Traversal is done level wise.
 with lowest level first
 Implementaion is similar to BFS
 */
-struct Node {
-    int data;
-    Node *left;
-    Node *right;
-
-    Node(int val) {
-        data = val;
-        left = right = NULL;
-    }
-};
-
 
 class Solution{
     public:

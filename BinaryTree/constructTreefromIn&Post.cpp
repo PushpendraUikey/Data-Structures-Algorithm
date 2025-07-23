@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
@@ -7,17 +8,6 @@ Since in Postorder root is visited in the end, so we start with last indexed ele
 and in Inorder traversal root divides the tree into to subtree, left and right so we
 also decide the span of tree accordingly
 */
-struct Node
-{
-    int data;
-    struct Node* left;
-    struct Node* right;
-
-    Node(int x){
-        data = x;
-        left = right = NULL;
-    }
-};
 
 class Solution {
     void findPos(int in[], map<int, int> & mp, int n){      //// To keep track of index of elements in inorder array

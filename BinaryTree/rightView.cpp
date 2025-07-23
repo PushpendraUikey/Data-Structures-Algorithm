@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
@@ -7,20 +8,6 @@ same as left view but just we visit the right subtree first in recursive
 and if you want BFS then update the hash table for each level every time 
 if left inserted first
 */
- template <typename T>
-
-    class BinaryTreeNode 
-    {
-    public : 
-        T data;
-        BinaryTreeNode<T> *left;
-        BinaryTreeNode<T> *right;
-        BinaryTreeNode(T data) {
-            this -> data = data;
-            left = NULL;
-            right = NULL;
-        }
-    };
 
 /// Recursive optimized solution of right view of Binary tree;
  

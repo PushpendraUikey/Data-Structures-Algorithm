@@ -1,20 +1,10 @@
 #include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
 Easy solution to find the height of a Binary Tree
 */
-struct Node
-{
-    int data;
-    struct Node *left;
-    struct Node *right;
-
-    Node(int val) {
-        data = val;
-        left = right = NULL;
-    }
-}; 
 
 // Function to Build Tree
 Node* buildTree(string str)

@@ -1,21 +1,9 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
 We're finding all the paths whose sum equals a given value in Binary Tree*/
-template < typename T> 
-    class BinaryTreeNode {
-        public : 
-            T data;
-            BinaryTreeNode<T> *left;
-            BinaryTreeNode<T> *right;
-    
-            BinaryTreeNode(T data) {
-                this -> data = data;
-                left = NULL;
-                right = NULL;
-            }
-    };
 
 void solve(BinaryTreeNode<int> *root, int k, vector<vector<int>> &ans, vector<int> &path){
     /// Base Case

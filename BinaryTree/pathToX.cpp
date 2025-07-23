@@ -1,38 +1,10 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 
 /// @brief  alrogithm to find the path to any value x from root 
 /// @tparam T 
-
-template <typename T = int>
-	class TreeNode
-	{
-		public:
-		T data;
-		TreeNode<T> *left;
-		TreeNode<T> *right;
-
-		TreeNode(T data)
-		{
-			this->data = data;
-			left = NULL;
-			right = NULL;
-		}
-
-		~TreeNode()
-		{
-			if (left != NULL)
-			{
-		  		delete left;
-			}
-			if (right != NULL)
-			{
-			 	delete right;
-			}
-		}
-	};
-
 void solve(TreeNode<int>* root, int x, vector<int>& v, bool& found){
 	if(root==nullptr){
 		return;

@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
@@ -6,19 +7,6 @@ Code to check if the given Binary Tree is sum tree or not
 A given tree is sumTree if it current root's value is sum of it's leftsubtree's sum and it's right
 subtree's sum
 */
-    template <typename T>
-    class TreeNode {
-       public:
-        T val;
-        TreeNode<T> *left;
-        TreeNode<T> *right;
-
-        TreeNode(T val) {
-            this->val = val;
-            left = NULL;
-            right = NULL;
-        }
-    };
 
 pair<bool, int> isSumTreefast(TreeNode<int> *root){
     if(root==NULL){

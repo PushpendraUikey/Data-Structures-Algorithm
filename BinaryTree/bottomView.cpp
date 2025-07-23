@@ -1,16 +1,10 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 
 /// @brief Following is the code to generate a bottom view of Binary Tree
 /// Algorithm Uses BFS and 'horizontal distnace' concept to solve problem
-
-struct Node
-{
-    int data;
-    Node* left;
-    Node* right;
-};
 
 class Solution {
   public:

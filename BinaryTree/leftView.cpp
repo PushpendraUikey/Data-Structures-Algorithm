@@ -1,31 +1,9 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
 Here's one BFS and one optimized(recursive) solution to get the left view of tree*/
-    template <typename T>
-    class BinaryTreeNode
-    {
-    public:
-        T data;
-        BinaryTreeNode<T> *left;
-        BinaryTreeNode<T> *right;
-
-        BinaryTreeNode(T data)
-        {
-            this -> data = data;
-            left = NULL;
-            right = NULL;
-        }
-
-        ~BinaryTreeNode()
-        {
-            if(left)
-                delete left;
-            if(right)
-                delete right;
-        }
-    };
 
 vector<int> printLeftView(BinaryTreeNode<int>* root) {
     vector<int> ans;

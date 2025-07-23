@@ -1,14 +1,6 @@
-//{ Driver Code Starts
 #include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
-
-// Tree Node
-struct Node
-{
-    int data;
-    Node* left;
-    Node* right;
-};
 
 // Utility function to create a new Tree Node
 Node* newNode(int val)
@@ -129,5 +121,3 @@ int main()
     }
     return 0;
 }
-
-// } Driver Code Ends

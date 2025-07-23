@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
@@ -7,16 +8,6 @@ Since preorder first visits the root node, so we start building from first index
 Inorder divides the tree into two parts of tree, left and right, accordingly we decide our span
 to build the tree's left and right subtree.
 */
-struct Node
-{
-  int data;
-  Node* left;
-  Node* right;
-
-  Node(int d):data(d), left(NULL),right(NULL) {
-
-  }
-};
 
 ///// We are using the inorder traversals to restrict ourselves(or our recursion) to go in parti left or right
 

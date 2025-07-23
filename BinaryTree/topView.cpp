@@ -1,15 +1,10 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
 Here is the code to get top view of a Binary Tree
 Logic based on Horizontal Distance from root*/
-struct Node
-{
-    int data;
-    Node* left;
-    Node* right;
-};
 
 class Solution
 {

@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
@@ -6,17 +7,6 @@ Solution to a famous Binary Tree problem where we've to burn
 a tree from a given node and the neighbouring connected nodes burn in one go.
 RETURN: How much time it'd take to burn the entire tree
 */
-
-struct Node {
-    int data;
-    Node *left;
-    Node *right;
-
-    Node(int val) {
-        data = val;
-        left = right = NULL;
-    }
-};
 
 class Solution {
   public:

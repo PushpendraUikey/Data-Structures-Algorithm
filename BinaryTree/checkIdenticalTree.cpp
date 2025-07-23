@@ -1,24 +1,10 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
 Check if two tree's are Identical or not
 */
-    template <typename T>
-
-    class BinaryTreeNode {
-    public :
-        T data;
-        BinaryTreeNode<T> *left;
-        BinaryTreeNode<T> *right;
-		
-        BinaryTreeNode(T data) {
-            this -> data = data;
-            left = NULL;
-            right = NULL;
-        }
-    };
-
 
 bool identicalTrees(BinaryTreeNode<int>* root1, BinaryTreeNode<int>* root2) {
     if(root1 == NULL && root2 == NULL) return true;	 

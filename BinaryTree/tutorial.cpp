@@ -1,17 +1,10 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
 Basic implemntation of Binary tree and some algorithms to Traverse Binary Tree
 */
-class node{
-        
-    public:
-        int data;
-        node* left;
-        node* right;
-        node(int d): data(d), left(NULL), right(NULL) { }
-};
 
 node* buildBinaryTree(node* root){
     cout << "Enter the data: " << endl;

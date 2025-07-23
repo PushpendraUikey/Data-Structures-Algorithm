@@ -1,17 +1,11 @@
 #include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
 
 /*
 Balanced Binary tree is a tree in which height of left subtree and right subtree 
 has same height or it has a difference of one.
 */
-
-// Tree Node
-struct Node {
-    int data;
-    Node* left;
-    Node* right;
-};
 
 // Utility function to create a new Tree Node
 Node* newNode(int val) {

@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include "allnodeDef.h"
 using namespace std;
    
 /*
@@ -6,19 +7,6 @@ Algorithm to count leaf nodes,
 very easys just do a traversal and when hit a leaf node increment the 
 answer
 */
-    template <typename T>
-    class BinaryTreeNode {
-      public :
-        T data;
-        BinaryTreeNode<T> *left;
-        BinaryTreeNode<T> *right;
-
-        BinaryTreeNode(T data) {
-                this -> data = data;
-                left = NULL;
-                right = NULL;
-        }
-    };
 
 void solve(BinaryTreeNode<int> *root, int &ans){
     if(root == NULL){

@@ -140,15 +140,32 @@ class Solution{
     {
         if(root == NULL){
         return true;
-    }
-
-    pair<bool, int> ans = isBalancedfast(root);
-    
-    return ans.first;
+        }
+        pair<bool, int> ans = isBalancedfast(root);
+        return ans.first;
     }
 };
 
-
+// slightly more optimized solution to check balanced tree.
+class Solution {
+    int check(Node* root){
+        if(!root) return 0;
+        
+        int ls = check(root->left);
+        if(ls == -1) return -1;
+        int rs = check(root->right);
+        if(rs == -1) return -1;
+        
+        if(abs(rs-ls)<=1) return max(ls, rs)+1;
+        return -1;
+    }
+  public:
+    bool isBalanced(Node* root) {
+        // Code here
+        if(check(root) != -1) return true;
+        return false;
+    }
+};
 
 int main() {
 

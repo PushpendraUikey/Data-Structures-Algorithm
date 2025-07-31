@@ -33,3 +33,31 @@ int miniJumpsToReachEnd(const vector<int>&arr){
     
     return jumps[n-1];
 }
+
+// Here's better greedy approach to solve the same problem in O(n) time and O(1) Space.
+class Solution {
+  public:
+    // Function to find minimum number of jumps to reach the end of the array.
+    int minimumJumps(int arr[], int n) {
+        
+        if(arr[0] == 0) return -1;
+        if(n==1) return 1;
+        
+        int maxReach = arr[0]; int steps=arr[0];
+        int jumps = 1;
+        for(int i=1; i<n; i++){
+            
+            if(i==n-1) return jumps;
+            maxReach = max(maxReach, arr[i]+i);
+            steps--;
+            
+            if(steps == 0){
+                if(i>=maxReach) return -1;   // not possible to reach end
+                jumps++;
+                steps = maxReach - i;
+            }
+        }
+        
+        return -1;
+    }
+};

@@ -49,3 +49,34 @@ class Solution{
     	return ans;
     }
 };
+
+
+// Another efficient implementation using two stacks.
+vector<int> spiralOrderTraversal(Node*root){
+	stack<Node*> s1, s2;
+	s1.push(root);
+
+	vector<int> ans;
+
+	while(!s1.empty() || !s2.empty()){
+
+		while(!s1.empty()){
+			Node* top = s1.top(); 
+			s1.pop();
+			ans.push_back(top->data);
+			// Left should be processed first when we go left to right
+			if(top->right) s2.push(top->right);
+			if(top->left) s2.push(top->left);
+		}
+		while(!s2.empty()){
+			Node* top = s2.top();
+			s2.pop();
+			ans.push_back(top->data);
+			// Right should be processed first when we go right to left
+			if(top->left) s1.push(top->left);
+			if(top->right) s1.push(top->right);
+		}
+	}
+
+	return ans;
+}

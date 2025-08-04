@@ -39,23 +39,7 @@ class Solution
 
 
 ////////// Here is the solution for the case when, Nodes given are connected to parent nodes
-template <typename T>
-    class BinaryTreeNode
-    {
-    public :
-        T data;
-        BinaryTreeNode<T> *left;
-        BinaryTreeNode<T> *right;
-        BinaryTreeNode<T> *parent;
 
-        BinaryTreeNode(T data)
-        {
-            this -> data = data;
-            left = NULL;
-            right = NULL;
-            parent = NULL;
-        }
-    };
 BinaryTreeNode<int> *LCA(BinaryTreeNode<int> *root,int n1, int n2){
     if(root == NULL){
         return nullptr;

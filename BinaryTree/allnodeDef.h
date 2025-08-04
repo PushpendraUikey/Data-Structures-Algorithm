@@ -1,32 +1,25 @@
 
-template<typename T>
-class BinaryTreeNode {
-public:
-    T data;
-    BinaryTreeNode<T> *left;
-    BinaryTreeNode<T> *right;
-    BinaryTreeNode(T data) {
-        this->data = data;
-        left = NULL;
-        right = NULL;
-    }
-};
 template <typename T>
 class BinaryTreeNode {
     public : 
     T data;
     BinaryTreeNode<T> *left;
     BinaryTreeNode<T> *right;
+    BinaryTreeNode<T> *parent;
+
     BinaryTreeNode(T data) {
         this -> data = data;
         left = NULL;
         right = NULL;
+        parent = NULL;
     }
     ~BinaryTreeNode() {
         if(left) 
             delete left;
         if(right) 
             delete right;
+        if(parent)
+            delete parent;
     }
 };
 
@@ -114,4 +107,11 @@ class node{
         node* left;
         node* right;
         node(int d): data(d), left(NULL), right(NULL) { }
+};
+
+struct Node
+{
+  int data;
+  Node *left,  *right;
+  Node *nextRight;  // This has garbage value in input trees
 };

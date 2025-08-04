@@ -80,6 +80,19 @@ int knapSack(int W, int wt[], int val[], int n)
     return K[n][W];
 }
 
+// Recursive KnapSack Approach
+int knapSack_recur(int W, int wt[], int val[], int n){
+    if(n==0 || W==0) return 0;  // No more items can be added into KnapSack
+
+    if(wt[n-1] > W){
+        return knapSack_recur(W, wt, val, n-1); // Reject last because of weight problem
+    }
+    return max(
+        knapSack_recur(W, wt, val, n-1),    // Do not included in KnapSack
+        knapSack_recur(W-wt[n-1], wt, val, n-1)+val[n-1]    //included in KnapSack
+    );
+}
+
 int main()
 {
     int val[] = { 60, 100, 120 };

@@ -29,3 +29,18 @@ class Solution {
         return maxSum[sizeOfArray-1];
     }
 };
+
+// Space optimized solution to the maximum Sum problem
+int maxSum(int arr[], int n){
+    if(n==1) return arr[0];
+    int prev_prev = arr[0];
+    int prev = max(arr[0], arr[1]);
+
+    for(int i=2; i<n; i++){
+        int res = max(max(prev, prev_prev+arr[i]), arr[i]);
+        prev_prev = prev;
+        prev = res;
+    }
+
+    return prev;
+}

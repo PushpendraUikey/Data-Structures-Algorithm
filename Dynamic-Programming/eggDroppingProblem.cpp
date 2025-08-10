@@ -96,3 +96,26 @@ int eggDrop(int e, int f){
     }
     return dp[e][f];
 }
+
+// Faster code
+/*
+Approach: Instead of fixing floors k and finding min moves,
+we fix moves m and find how many floors we can test with given eggs.
+It’s like changing the axis you solve the DP along.
+*/
+class Solution {
+public:
+    int eggDrop(int eggs, int floors) {
+        vector<long long> dp(eggs + 1, 0);
+        int moves = 0;
+        
+        while (dp[eggs] < floors) {
+            moves++;
+            for (int e = eggs; e >= 1; e--) {
+                dp[e] = dp[e] + dp[e - 1] + 1;
+            }
+        }
+        
+        return moves;
+    }
+};

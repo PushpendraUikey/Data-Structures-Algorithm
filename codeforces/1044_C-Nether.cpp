@@ -124,3 +124,64 @@ int main() {
     }
     return 0;
 }
+
+
+// Second solution
+#define ll long long
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    ll tt, n, i, poss, maxp, maxs, path, u, v, pt, j;
+    cin >> tt;
+
+    while(tt-->0){
+        cin >> n;
+        maxp = 0;
+        maxs = 1;
+
+        vector<ll> adj;
+        ll lp[n+1];
+        for(i=1; i<=n; i++){
+            cout << "? " << i << ' ' << n << ' ';
+            for(j=1; j<=n; j++){
+                cout << j << ' ';
+            }
+            cout << "\n";
+            cout.flush();
+            cin >> path;
+
+            lp[i] = path;
+            if(path > maxp){
+                maxp = path;
+                maxs = i;
+            }
+        }
+        adj.push_back(maxs);
+        maxp--;
+        i = 1;
+        while(maxp && i<=n){
+            for( ; i<=n ; i++) if(lp[i] == maxp){
+                u = i;
+                break;
+            }
+            cout << "? " << maxs << " 2 " << u << " " << maxs;
+            cout << "\n";
+            cout.flush();
+            cin >> v;
+            i++;
+            if(v == 2){
+                adj.push_back(u);
+                maxs = u;
+                maxp--;
+                i = 1;
+            }
+        }
+        cout << "! " << adj.size() << ' ';
+        for(i=0; i<(int)adj.size(); i++){
+            cout << adj[i] << ' ';
+        }
+        cout << "\n";
+        cout.flush();
+    }
+}

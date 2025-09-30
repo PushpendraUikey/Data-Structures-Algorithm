@@ -171,6 +171,18 @@ node* reverseListTwoptr(node* head){
     return head;
 }
 
+node* utilityIntersec(node* head1, node* head2, int d){
+    while(d>0){
+        if(!head1) return nullptr;
+        head1 = head1->next;
+    }
+    while(head1 != head2){
+        if(head1==nullptr || head2 == nullptr) return nullptr;
+        head1 = head1->next;
+        head2 = head2->next;
+    }
+    return head1;
+}
 node* findIntersectionofTwoLL(node* head1, node* head2){
     int c1 = 0, c2 = 0;
     node* t1 = head1, *t2 = head2;
@@ -190,17 +202,74 @@ node* findIntersectionofTwoLL(node* head1, node* head2){
 
     return nullptr;
 }
-node* utilityIntersec(node* head1, node* head2, int d){
-    while(d>0){
-        if(!head1) return nullptr;
-        head1 = head1->next;
+
+node* insertatHeadCDLL(node* head, int data){ 
+    if(!head){
+        node* temp = new node();
+        temp->x = data;
+        temp->next = temp;
+        temp->prev = temp;
+        return temp;
     }
-    while(head1 != head2){
-        if(head1==nullptr || head2 == nullptr) return nullptr;
-        head1 = head1->next;
-        head2 = head2->next;
+    node* temp = new node();
+    temp->x = data;
+    temp->prev = head->prev;
+    temp->next = head;
+    head->prev->next = temp;
+    head->prev = temp;
+    return temp; /*Same code for insertion in the end we'll just return head here*/
+}
+
+node* sortedInsertLL(node* head, int data){
+    node* curr=head, *prev = nullptr;
+    while(curr && data > curr->x){
+        prev = curr;
+        curr = curr->next;
     }
-    return head1;
+    node* temp = new node();
+    temp->x = data;
+    temp->next = nullptr;
+    if(!prev){
+        temp->next = head;
+        return temp;
+    }
+    temp->next = prev->next;
+    prev->next = temp;
+    return head;
+}
+
+node* middleofLL(node* head){
+    node* curr = head;
+    int len=0;
+    while(curr){
+        len++;
+        curr = curr->next;
+    }
+    if(len==0) return nullptr;
+
+    if(len%2){
+        len = (len+1)/2;
+    }else{
+        len = len/2;
+    }
+    curr = head;
+    while(len>1){
+        curr = curr->next;
+        len--;
+    }
+    return curr;
+}
+node* middleofLLeff(node* head){
+    if(!head) return nullptr;
+    node* slow = head, *fast = head->next;
+    while(fast){
+        if(fast->next){
+            slow = slow->next;
+            fast = fast->next;
+        }
+        fast = fast->next;
+    }
+    return slow;
 }
 
 int main(){
@@ -224,11 +293,13 @@ int main(){
         }
     }
 
-    temp = reverse(head);
-    while(temp){
-        // cout << temp->x << " ";
-        cout << (*temp).x << " ";
-        temp = temp->next;
-    }
+    // temp = reverse(head);
+    // while(temp){
+    //     // cout << temp->x << " ";
+    //     cout << (*temp).x << " ";
+    //     temp = temp->next;
+    // }
+    temp = middleofLLeff(head);
+    if(temp) cout << temp->x;
     cout << "\n";
 }

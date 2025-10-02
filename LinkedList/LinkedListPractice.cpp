@@ -272,6 +272,50 @@ node* middleofLLeff(node* head){
     return slow;
 }
 
+node* NthFromEndLL(node* head, int n){
+    if(!head) return head;
+    int len=0;
+    node* curr = head;
+    while(curr){
+        len++;
+        curr = curr->next;
+    }
+    if(n > len) return nullptr;
+    len -= n;
+    curr = head;
+    while(len>0){
+        len--;
+        curr = curr->next;
+    }
+    return curr;
+}
+node* NthFromEndLL_sec(node* head, int n){
+    node* first = head;
+    while(n-->0){
+        if(!first) return first;
+        first = first->next;
+    }
+    node* second = head;
+    while(first){
+        first = first->next;
+        second = second->next;
+    }
+
+    return second;
+}
+
+node* recursiveReverseLL(node*head){
+    if(!head) return nullptr;
+    if(head->next == nullptr){
+        return head;
+    }
+    node* nhead = recursiveReverseLL(head->next);
+    node* t = head->next;
+    t->next = head;
+    head->next = nullptr;
+    return nhead;
+}
+
 int main(){
     node* head = nullptr;
     node* temp;
@@ -299,7 +343,8 @@ int main(){
     //     cout << (*temp).x << " ";
     //     temp = temp->next;
     // }
-    temp = middleofLLeff(head);
+    // temp = middleofLLeff(head);
+    temp = NthFromEndLL(head, 5);
     if(temp) cout << temp->x;
     cout << "\n";
 }

@@ -130,3 +130,44 @@ public:
         return water;
     }
 };
+/*
+You are completely right: the water a column can trap is determined by `min(maxLeft, maxRight)`.
+Here is exactly how the logic guarantees that when we process the `right` pointer, `maxRight` is 
+**always** the smaller of the two extremes.
+
+## The Proof is in "Who is Parked?"
+Think about how the pointers move. A pointer only moves inward if it is pointing to the **smaller** of the two 
+current heights. The pointer at the taller height stays parked.
+
+Let's say we are looking at the code and `height[left] > height[right]` is true. We enter the `else` block to 
+process the `right` pointer.
+
+How can we be 100% sure that `maxRight < maxLeft`?
+
+**Step 1: Left is parked at a tall wall.**
+Because we are moving `right`, it means `height[left] > height[right]`. We know for a fact there is a wall on the 
+left of *at least* size `height[left]`. Therefore:
+`maxLeft >= height[left]`
+
+**Step 2: How did the right pointer get here?**
+You might wonder: *"What if we saw a massive wall on the right side earlier, so maxRight is actually huge?"*
+
+Here is the magic: **That is impossible.**
+
+If there was a massive wall on the right (say, height 100) and `left` was currently at a smaller wall (say, height 10), 
+what would have happened when the `right` pointer was standing on that 100-height wall?
+`height[left]` (10) would have been less than `height[right]` (100).
+
+The algorithm would have **parked the right pointer on the 100-height wall** and moved the `left` pointer instead!
+
+**Step 3: The logical conclusion**
+The `right` pointer is only allowed to move inward if the highest wall it has seen so far (`maxRight`) is **smaller** 
+than the wall the `left` pointer is currently parked on (`height[left]`).
+
+> Because `right` is the one moving, it means `maxRight <= height[left]`.
+> And because `maxLeft >= height[left]`, we can chain this together:
+> **`maxRight <= maxLeft`**
+
+Because `maxRight` is guaranteed to be the bottleneck, we don't even need to know exactly how big `maxLeft` is. 
+We just trust that it's big enough, and we can safely calculate `water += maxRight - height[right]`.
+*/

@@ -1,6 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+/*
+    Bottom Up Approach
+    Tabulation
+*/
+class Solution {
+
+public:
+    int minDistance(string word1, string word2) {
+        int n = word1.size();
+        int m = word2.size();
+        if(n==0) return m;
+        if(m==0) return n;
+        vector<vector<int>> ans(n+1, vector<int>(m+1, INT_MAX));
+        for(int i=1; i<=n; i++){
+            ans[i][0] = i;
+        }
+        for(int j=1; j<=m; j++){
+            ans[0][j] = j;
+        }
+        ans[0][0] = 0;
+
+        for(int i=1; i<=n; i++) {
+            for(int j=1; j<=m; j++) {
+                if(word1[i-1] == word2[j-1]){
+                    ans[i][j] = ans[i-1][j-1];
+                } else {
+                    ans[i][j] = min(min(ans[i-1][j-1], ans[i-1][j]), ans[i][j-1]) + 1;
+                }
+            }
+        }
+        return ans[n][m];
+    }
+};
+
+
 class Solution {
     int solve(vector<vector<int>>&ans, string&word1, string&word2, int n, int m) {
         if(n==0 && m==0) return 0;

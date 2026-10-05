@@ -34,3 +34,37 @@ public:
         fillinorder(arr, root, i);
     }
 };
+
+// O(h) space solution
+class Solution {
+    TreeNode* first = nullptr;
+    TreeNode* second = nullptr;
+    void traverse(TreeNode* root, TreeNode* &prev){
+        if(!root) return;
+
+        traverse(root->left, prev);
+        if(prev) {
+            if(prev->val > root->val){
+                if(!first){
+                    first = prev;
+                    second = root;
+                }
+                else {
+                    second = root;
+                }
+            }
+        }
+        prev = root;
+        traverse(root->right, prev);
+    }
+public:
+    void recoverTree(TreeNode* root) {
+        first = nullptr;
+        second = nullptr;
+        TreeNode* prev = nullptr;
+        traverse(root, prev);
+        if(first && second){
+            swap(first->val, second->val);
+        }
+    }
+};

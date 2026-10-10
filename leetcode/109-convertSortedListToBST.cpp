@@ -39,3 +39,44 @@ public:
         return build(arr, 0, arr.size()-1);
     }
 };
+
+
+// Bottom Up Approach - Building According to the Inorder Traversal
+class Solution {
+public:
+    TreeNode* sortedListToBST(ListNode* head) {
+        // 1. Count total nodes to determine the bounds
+        int size = 0;
+        ListNode* curr = head;
+        while (curr) {
+            size++;
+            curr = curr->next;
+        }
+        
+        // 2. Build the tree recursively
+        return buildTree(head, 0, size - 1);
+    }
+
+private:
+    // Pass 'head' by reference so it advances globally as the recursion unwinds
+    TreeNode* buildTree(ListNode*& head, int left, int right) {
+        if (left > right) return nullptr;
+
+        int mid = left + (right - left) / 2;
+
+        // Build the left subtree first (this simulates the "Left" in in-order traversal)
+        TreeNode* leftChild = buildTree(head, left, mid - 1);
+
+        // Process the current node (the "Root")
+        TreeNode* root = new TreeNode(head->val);
+        root->left = leftChild;
+        
+        // Advance the linked list pointer
+        head = head->next;
+
+        // Build the right subtree (the "Right")
+        root->right = buildTree(head, mid + 1, right);
+
+        return root;
+    }
+};

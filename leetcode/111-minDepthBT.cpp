@@ -31,3 +31,36 @@ public:
         return md;
     }
 };
+
+
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        if(!root) return 0;
+
+        int md = INT_MAX;
+        queue<pair<TreeNode*, int>> q;
+        q.push({root, 1});
+
+        while(!q.empty()) {
+            auto [tnode, cd] = q.front();
+            q.pop();
+
+            // if it is a leaf node then it is guaranteed to be the min depth if it is encountered 
+            // first time in the Level Order Traversal.
+            if(!tnode->left && !tnode->right && cd<md) {
+                md = cd;
+            }
+
+            if(tnode->left){
+                q.push({tnode->left, cd+1});
+            }
+            if(tnode->right){
+                q.push({tnode->right, cd+1});
+            }
+
+        }
+
+        return md;
+    }
+};

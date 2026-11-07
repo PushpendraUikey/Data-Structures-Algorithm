@@ -15,3 +15,16 @@ class Solution {
             return moves;
         }
 };
+
+class Solution2 {
+    public:
+        int minMoves(vector<int>& nums) {
+            int n = nums.size();
+            long long sumt = accumulate(nums.begin(), nums.end(), 0LL);
+            int minval = *min_element(nums.begin(), nums.end());
+
+            long long moves = sumt - (n*1LL) * minval;
+
+            return moves;
+        }
+};

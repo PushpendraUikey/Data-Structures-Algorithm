@@ -40,3 +40,22 @@ public:
         return dp[n];
     }
 };
+
+class Solution {
+public:
+    int climbStairs(int n, vector<int>& costs) {
+        if(n == 1) return costs[0] + 1;
+        int c1 = 0;
+        int c2 = costs[0] + 1;
+        int c3 = min(4, c2+1) + costs[1];
+        int c4;
+
+        for(int i=3; i<=n; i++) {
+            c4 = costs[i-1] + min(c1+9, min(c2+4, c3+1));
+            c1 = c2;
+            c2 = c3;
+            c3 = c4;
+        }
+        return c3;
+    }
+};

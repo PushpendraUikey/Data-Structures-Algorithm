@@ -59,6 +59,11 @@ public:
 };
 
 // Copilot Solution
+// This solution is more efficient and easy. Instead of using DFS,
+// we can just count the number of servers in each row and cols
+// If a server has more than 1 server in its row or col, it can 
+// communicate with other servers. So we can just count the number 
+// of servers that can communicate with other servers.
 class Solution {
 public:
     int countServers(vector<vector<int>>& grid) {

@@ -45,3 +45,24 @@ public:
         return totalcost;
     }
 };
+
+
+/*
+As k increases, the slope of cost(k) only changes at k = min(need1, need2) 
+and k = max(need1, need2), the points where one of the max(0, …) terms 
+reaches zero. Between those points the cost is a straight line, and the 
+lowest point of a straight line on an interval is at one of its ends. 
+So the answer is always at one of three candidates:
+*/
+class Solution {
+public:
+    long long minimumCost(int cost1, int cost2, int costBoth, int need1, int need2) {
+
+        auto cost = [&](int k) {
+            return (1LL*k)*(1LL*costBoth) + max(0, need1-k)*(1LL*cost1) + max(0, need2-k)*(1LL*cost2);
+        };
+
+        long long answer = min( cost(0), min(cost(min(need1, need2)), cost(max(need1, need2))) );
+        return answer;
+    }
+};

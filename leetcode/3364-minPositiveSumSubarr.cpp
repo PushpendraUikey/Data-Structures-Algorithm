@@ -64,3 +64,31 @@ public:
         return minsum == INT_MAX ? -1 : minsum;
     }
 };
+
+
+/*
+When you need many subarray sums, build prefix sum once.
+*/
+class Solution3 {
+public:
+    int minimumSumSubarray(vector<int>& nums, int l, int r) {
+        int n = nums.size();
+        int prefixSum[n+1];
+        prefixSum[0] = 0;
+        int minsum = INT_MAX;
+
+
+        for(int i=0; i<n; i++) {
+            prefixSum[i+1] = prefixSum[i] + nums[i];
+        }
+
+        for(int len=l; len<=r; len++) {
+            for(int i=0; i+len<=n; i++) {
+                int currsum = prefixSum[i+len] - prefixSum[i];
+                if(currsum > 0) minsum = min(minsum, currsum);
+            }
+        }
+
+        return minsum == INT_MAX ? -1 : minsum;
+    }
+};

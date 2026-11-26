@@ -24,3 +24,26 @@ public:
         return ans;
     }
 };
+
+
+class Solution {
+public:
+    string digitSum(string s, int k) {
+        string ans = s;
+        while(ans.length() > k){
+            string next = "";
+            int n = ans.length();
+            for(int i=0; i<n; i+=k) {
+                int tsum = 0;
+                for(int j=i; j<min(i+k, n); j++){
+                    tsum += (ans[j]-'0');
+                }
+
+                next += to_string(tsum);
+            }
+            ans = next;
+        }
+
+        return ans;
+    }
+};
